@@ -71,6 +71,7 @@ camera.position.set( 0, 0, 1000 );
 
 const controls = new OrbitControls(camera, renderer.domElement)
 controls.enableDamping = true
+controls.target.set( GRID_WIDTH/2, GRID_LENGTH/2, 0 ); //Orbit around grid center 
 
 // geometry
 const geometry = new THREE.BufferGeometry();
