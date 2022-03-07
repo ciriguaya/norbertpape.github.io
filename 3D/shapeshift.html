@@ -94,6 +94,23 @@
 					render();
 				} );
 
+				const materialStone = new THREE.PointsMaterial( { size:0.002, color: 0xFFB30D } );
+
+
+				const loaderPLY = new PLYLoader()
+				loaderPLY.load(
+				    '02Stone50KCloud.ply',
+				    function (geometry) {
+				        geometry.computeVertexNormals();
+				        const stone = new THREE.Points(geometry, materialStone);
+				        stone.rotateX(-Math.PI / 2);
+								stone.scale.set(0.01,0.01,0.01 );
+				        stone.position.set(-2,0,-1);
+								stone.name = 'stone';
+								scene.add(stone);
+								render();
+				});
+				
 
 				const geometry = new THREE.BufferGeometry();
 
